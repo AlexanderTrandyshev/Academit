@@ -8,9 +8,11 @@ namespace Lesson01
     {
         public static void Main(string[] args)
         {
-            Range range = new Range(1, 7);
-            Console.WriteLine("Длинна отрезка = {0}", range.GetLength());
-            Console.WriteLine("Точка лежит на отрезке: {0}", range.IsInside(5));
+            Range range1 = new Range(1, 7);
+            Range range2 = new Range(3, 10);
+            Console.WriteLine("Длинна отрезка = {0}", range1.GetLengthInterval1());
+            Console.WriteLine("Точка лежит на отрезке: {0}", range1.IsInside(5));
+            Console.WriteLine("Пересечение интервалов ");
         }
     }
 }
