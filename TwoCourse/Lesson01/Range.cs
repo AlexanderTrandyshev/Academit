@@ -34,20 +34,26 @@ namespace Range
             if (From <= end && To >= start)
             {
                 double[] newInterval = new double[(int)Math.Round(GetLengthInterval)];
+                double[] startEndNewInterval = new double[2];
 
                 for (int i = 0, j = 0; i <= To; ++i)
                 {
                     // условие, что i пренадлежит интервалу №2
+                    // не правильно сравнивает вещественное число
                     if (i >= start && i <= end)
                     {
                         newInterval[j] = i;
                         ++j;
                     }
                 }
+
+                startEndNewInterval[0] = newInterval[0]; 
+                startEndNewInterval[1] = newInterval[newInterval.Length - 1];
+                
                 // найти способ возврата массива с двумя значениями
                 // newInterval = { start; };
 
-                return newInterval;
+                return startEndNewInterval;
             }
             else
             {
