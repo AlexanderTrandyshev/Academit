@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lesson01
+namespace Range
 {
     class Range
     {
@@ -17,33 +17,35 @@ namespace Lesson01
             set;
         }
 
+        public double GetLengthInterval
+        {
+            get { return To - From; }
+        }
+
         public Range(double from, double to)
         {
             From = from;
             To = to;
         }
 
-        public double GetLengthInterval1()
-        {
-            return To - From;
-        }
-
-        public double[] GetIntersectionIntervals(double from1, double to1, double from2, double to2)
+        public double[] GetIntersectionIntervals(double start, double end)
         {
             //Условие, что интервалы пересекаются
-            if (from1 <= to2 && to1 >= from2)
+            if (From <= end && To >= start)
             {
-                double[] newInterval = new double[(int)Math.Round(GetLengthInterval1())];
+                double[] newInterval = new double[(int)Math.Round(GetLengthInterval)];
 
-                for (int i = 0, j = 0; i <= to1; ++i)
+                for (int i = 0, j = 0; i <= To; ++i)
                 {
                     // условие, что i пренадлежит интервалу №2
-                    if (i >= from2 && i <= to2)
+                    if (i >= start && i <= end)
                     {
                         newInterval[j] = i;
                         ++j;
                     }
                 }
+                // найти способ возврата массива с двумя значениями
+                // newInterval = { start; };
 
                 return newInterval;
             }
