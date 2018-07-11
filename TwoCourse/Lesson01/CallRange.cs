@@ -17,10 +17,13 @@ namespace Range
             Range range7 = new Range(2, 13);
             Range range8 = new Range(1, 5);
             Range range9 = new Range(2, -5);
-            Range range10 = new Range(11, -5);
+            Range range10 = new Range(11, 2);
+            Range range11 = new Range(11, -1); 
+            Range range12 = new Range(11, 12); 
 
             Console.WriteLine($"Длинна отрезка = {range1.GetLengthInterval}");
             Console.WriteLine($"Точка лежит на отрезке: {range1.IsInside(5)}");
+
             Console.WriteLine($"Пересечение интервалов 1 и 2 = (5, 10) : {range1.GetIntersectionIntervals(range2)}");
             Console.WriteLine($"Пересечение интервалов 1 и 3 = (1, 10) : {range1.GetIntersectionIntervals(range3)}");
             Console.WriteLine($"Пересечение интервалов 1 и 4 = (1, 10) : {range1.GetIntersectionIntervals(range4)}");
@@ -29,7 +32,9 @@ namespace Range
             Console.WriteLine($"Пересечение интервалов 1 и 7 = (2, 10) : {range1.GetIntersectionIntervals(range7)}");
             Console.WriteLine($"Пересечение интервалов 1 и 8 = (1, 5) : {range1.GetIntersectionIntervals(range8)}");
             Console.WriteLine($"Пересечение интервалов 1 и 9 = (1, 2) : {range1.GetIntersectionIntervals(range9)}");
-            Console.WriteLine($"Пересечение интервалов 1 и 10 = (1, 10): {range1.GetIntersectionIntervals(range10)}");
+            Console.WriteLine($"Пересечение интервалов 1 и 10 = (2, 10) : {range1.GetIntersectionIntervals(range10)}");
+            Console.WriteLine($"Пересечение интервалов 1 и 11 = (1, 10) : {range1.GetIntersectionIntervals(range11)}");
+            Console.WriteLine($"Пересечение интервалов 1 и 12 = (null) : {range1.GetIntersectionIntervals(range12)}");
 
             /*
              * пересечение - не статические методы

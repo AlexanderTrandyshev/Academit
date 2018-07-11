@@ -28,42 +28,61 @@ namespace Range
             To = to;
         }
         // Пересечения 
-        public Object GetIntersectionIntervals(Range interval)
+        public object GetIntersectionIntervals(Range interval)
         {
             double newFrom;
             double newTo;
             double e = 1e-11;
-            // от From до interval.To
-            if ((Math.Abs(From - interval.From) < e || (From > interval.From) && To > interval.To))
+            // если числа положительные
+            if (From < interval.To && To > interval.From)
             {
-                newFrom = From;
-                newTo = interval.To;
-                return new Range(newFrom, newTo);
+                // от From до interval.To
+                if (From < interval.To && To > interval.To && (From > interval.From || Math.Abs(From - interval.From) < e))
+                {
+                    newFrom = From;
+                    newTo = interval.To;
+                    return new Range(newFrom, newTo);
+                }
+                // от From до To
+                else if ((Math.Abs(From - interval.From) < e && Math.Abs(To - interval.To) < e) || (From > interval.From && To < interval.To))
+                {
+                    return new Range(From, To);
+                }
+                // от interval.From до To
+                else if ((From < interval.From || Math.Abs(From - interval.From) < e) && (To < interval.To || Math.Abs(To - interval.To) < e))
+                {
+                    newFrom = interval.From;
+                    newTo = To;
+                    return new Range(newFrom, newTo);
+                }
+                // от interval.From до interval.To
+                else
+                {
+                    newFrom = interval.From;
+                    newTo = interval.To;
+                    return new Range(newFrom, newTo);
+                }
             }
-            // от From до To
-            else if ((From > interval.From && To < interval.To) || (From < interval.From && To > interval.To))
+            // если interval.To - отрицательное
+            else if ((From > interval.To || Math.Abs(From - interval.To) < e))
             {
-                return new Range(From, To);
+                if (To > interval.From)
+                {
+                    newFrom = From;
+                    newTo = interval.From;
+                    return new Range(newFrom, newTo);
+                }
+                else
+                {
+                    newFrom = From;
+                    newTo = To;
+                    return new Range(newFrom, newTo);
+                }
             }
-            // от From до interval.From
-            else if (From > interval.To && From < interval.From && To > interval.To && To > interval.From)
+            else if (From < interval.From && To > interval.To)
             {
-                newFrom = From;
-                newTo = interval.From;
-                return new Range(newFrom, newTo);
-            } 
-            // от interval.From до To
-            else if (From < interval.From && (To < interval.To || Math.Abs(interval.To - To) < e))
-            {
-                newFrom = interval.From;
+                newFrom = interval.To;
                 newTo = To;
-                return new Range(newFrom, newTo);
-            } 
-            // от interval.From до interval.To
-            else if ((From < interval.From && To > interval.To) || (Math.Abs (From - interval.From) < e && Math.Abs(To - interval.To) < e))
-            {
-                newFrom = interval.From;
-                newTo = interval.To;
                 return new Range(newFrom, newTo);
             }
             else
@@ -71,21 +90,57 @@ namespace Range
                 return null;
             }
         }
-        // Объединение
-        /*
-         * public double[] GetJoinIntervals(double start, double end)
-        {
 
-        }
-        */
+        // Объединение
+         public object GetJoinIntervals(Range interval)
+         {
+            double newFrom;
+            double newTo;
+            double e = 1e-11;
+            
+            if(From < interval.From && To > interval.From && (To < interval.To || Math.Abs(To - interval.To) < e))
+            {
+                newFrom = From;
+                newTo = interval.To;
+                return new Range(newFrom, newTo);
+            }
+            else if ((From < interval.From || Math.Abs(From - interval.From) < e) && To > interval.From && (To > interval.To || Math.Abs(To - interval.To) < e))
+            {
+                newFrom = From;
+                newTo = To;
+                return new Range(newFrom, newTo);
+            }
+            else if (From > interval.From && To > interval.From && To < interval.To)
+            {
+                newFrom = interval.From;
+                newTo = interval.To;
+                return new Range(newFrom, newTo);
+            }
+            else if (From > interval.From && To > interval.To)
+            {
+                newFrom = interval.From;
+                newTo = To;
+                return new Range(newFrom, newTo);
+            }
+         }
+        
+
         public bool IsInside(double point)
         {
             return point >= From && point <= To;
         }
-        // точно не так должно быть!
+        // TODO точно не так должно быть! (попробовать перегрузку)
         public override string ToString()
         {
-            return $"({From}, {To})";
+            if ()
+            {
+                return $"({From}, {To})";
+
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
