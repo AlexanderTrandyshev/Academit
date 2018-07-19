@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    class CompSort : IComparer<Circle, Square>
+    class CompSort : IComparer<IShape>
     {
-        public int Compare(Circle x, Circle y)
-        {
-            if (x.GetArea() > y.GetArea()) { return 1; }
-            else if (x.GetArea() < y.GetArea()) { return -1; }
-            else { return 0; }
-        }
-
-        public int Compare(Square x, Square y)
+        public int Compare(IShape x, IShape y)
         {
             if (x.GetArea() > y.GetArea()) { return 1; }
             else if (x.GetArea() < y.GetArea()) { return -1; }

@@ -132,14 +132,34 @@ namespace Range
         // Разница
         public object GetDifferenceIntervals(Range interval)
         {
-            if (GetIntersectionIntervals(interval) != null)
+            double newFrom;
+            double newTo;
+            double e = 1e-11;
+            // TODO что делать если из 1 невозможно вычесть 2 т.к. он внутри 2? Если 1 вхидит в 2 частично?
+            if (From < interval.From && To > interval.From)
             {
-                //Взять блок кода функции GetIntersectionIntervals и инвертировать для разницы (см. условия задачи в лекции №1) 
+                if (To > interval.To)
+                {
+                    object[] arrayIntervals = { new Range(From, interval.From), new Range(interval.To, To) };
+                    return arrayIntervals;
+                }
+                else
+                {
+                    newFrom = From;
+                    newTo = interval.From;
+                    return new Range(newFrom, newTo);
+                }
+            }
+            else if ((From - interval.From < e || From > interval.From) && To > interval.To)
+            {
+                newFrom = interval.To;
+                newTo = To;
+                return new Range(newFrom, newTo);
             }
             else
             {
-                object[] array = { new Range(From, To), interval };
-                return array;
+                object[] arrayIntervals = { new Range(From, To), new Range(interval.From, interval.To) };
+                return arrayIntervals;
             }
         }
 
