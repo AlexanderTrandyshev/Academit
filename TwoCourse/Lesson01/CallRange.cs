@@ -36,6 +36,10 @@ namespace Range
             Console.WriteLine($"Пересечение интервалов 1 и 11 = (1, 10) : {range1.GetIntersectionIntervals(range11)}");
             Console.WriteLine($"Пересечение интервалов 1 и 12 = (null) : {range1.GetIntersectionIntervals(range12)}");
 
+            Range range13 = new Range(10, 12);
+            Console.WriteLine($"Объединение интервалов 1 и 13 = (1, 12) : {range1.GetJoinIntervals(range13)}");
+
+
             /*
              * пересечение - не статические методы
              объединение - массив объектов

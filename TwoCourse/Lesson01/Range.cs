@@ -122,24 +122,41 @@ namespace Range
                 newTo = To;
                 return new Range(newFrom, newTo);
             }
+            else
+            {
+                object[] arrayIntervals = { new Range(From, To), new Range(interval.From, interval.To) };
+                return arrayIntervals;
+            }
          }
-        
+
+        // Разница
+        public object GetDifferenceIntervals(Range interval)
+        {
+            if (GetIntersectionIntervals(interval) != null)
+            {
+                //Взять блок кода функции GetIntersectionIntervals и инвертировать для разницы (см. условия задачи в лекции №1) 
+            }
+            else
+            {
+                object[] array = { new Range(From, To), interval };
+                return array;
+            }
+        }
 
         public bool IsInside(double point)
         {
             return point >= From && point <= To;
         }
-        // TODO точно не так должно быть! (попробовать перегрузку)
+        // TODO (можно писать код только в теле метода)
         public override string ToString()
         {
-            if ()
+            if (From.Equals(null) && To.Equals(null))
             {
-                return $"({From}, {To})";
-
+                return "null";
             }
             else
             {
-                return null;
+                return $"({From}, {To})";
             }
         }
     }
