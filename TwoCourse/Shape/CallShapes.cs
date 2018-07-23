@@ -15,11 +15,30 @@ namespace Shape
             IShape square = new Square(5);
             IShape triangle = new Triangle(1, 1, 3, 3, 4, 4);
 
-            IShape[] array = { circle, rectangle, square, triangle };
+            Console.WriteLine($"Circle = {circle.GetArea()}, Reactangle = {rectangle.GetArea()}, Square = {square.GetArea()},  Triangle = {triangle.GetArea()}");
 
-            Console.WriteLine(array);
+            IShape[] arrayShapes = { circle, rectangle, square, triangle };
+            // Массив не отсартирован
+            foreach (IShape e in arrayShapes)
+            {
+                Console.Write($"{e} ");
+            }
 
-          //  Array.Sort(array, CompSort);
+            Console.WriteLine();
+
+            // Массив отсартирован
+            Console.WriteLine($"Макс. площадь у фигуры = {GetMaxArrayShape(arrayShapes)}, " +
+                $"Площадь = {GetMaxArrayShape(arrayShapes).GetArea()}, " +
+                $"Периметер = {GetMaxArrayShape(arrayShapes).GetPerimeter()}, " +
+                $"Высота = {GetMaxArrayShape(arrayShapes).Heigth}, " +
+                $"Ширина = {GetMaxArrayShape(arrayShapes).Width}");
+        }
+
+        public static IShape GetMaxArrayShape(IShape[] arrayShapes)
+        {
+            Array.Sort(arrayShapes, new CompSort());
+
+            return arrayShapes[arrayShapes.Length - 1];
         }
     }
 }

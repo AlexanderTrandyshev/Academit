@@ -4,7 +4,6 @@ namespace Range
 {
     class Range
     {
-
         public double From
         {
             get;
@@ -90,7 +89,6 @@ namespace Range
                 return null;
             }
         }
-
         // Объединение
          public object GetJoinIntervals(Range interval)
          {
@@ -150,6 +148,7 @@ namespace Range
                     return new Range(newFrom, newTo);
                 }
             }
+            //Нужно без e
             else if ((From - interval.From < e || From > interval.From) && To > interval.To)
             {
                 newFrom = interval.To;

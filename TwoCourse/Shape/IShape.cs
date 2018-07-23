@@ -23,6 +23,5 @@ namespace Shape
         double GetArea();
 
         double GetPerimeter();
-
     }
 }
