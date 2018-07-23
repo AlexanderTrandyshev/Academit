@@ -15,7 +15,7 @@ namespace Vector
         {
             if (n <= 0)
             {
-                throw new ArgumentException("Размер вектора не может быть <= 0"); ;
+                throw new ArgumentException("Размер вектора не может быть <= 0");
             }
             else
             {

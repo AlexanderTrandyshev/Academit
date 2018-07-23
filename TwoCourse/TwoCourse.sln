@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shape", "Shape\Shape.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vector", "Vector\Vector.csproj", "{073544B6-2D5D-4A8E-BEA2-5C4468A009E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayListHome", "ArrayListHome\ArrayListHome.csproj", "{9F380B64-DCCC-4037-B6F8-637A5ABC180C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{073544B6-2D5D-4A8E-BEA2-5C4468A009E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{073544B6-2D5D-4A8E-BEA2-5C4468A009E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{073544B6-2D5D-4A8E-BEA2-5C4468A009E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F380B64-DCCC-4037-B6F8-637A5ABC180C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F380B64-DCCC-4037-B6F8-637A5ABC180C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F380B64-DCCC-4037-B6F8-637A5ABC180C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F380B64-DCCC-4037-B6F8-637A5ABC180C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
