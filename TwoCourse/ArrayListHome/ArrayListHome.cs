@@ -11,18 +11,15 @@ namespace ArrayListHome
     {
         static void Main(string[] args)
         {
-            //TODO добавить путь, где лежит файл
-            const string path = "ПУТЬ ДЛЯ ФАЙЛА ГДЕ ВСЕ ЧИСЛА";
-
-            using (StreamReader sr = new StreamReader(path))
+            using (StreamReader reader = new StreamReader("index.txt"))
             {
-                if (sr.ReadToEnd() != null)
+                if (reader.ReadToEnd() == null)
                 {
                     throw new Exception("Пустой файл");
                 }
                 else
                 {
-                    string fileCopy =sr.ReadToEnd();
+                    string fileCopy =reader.ReadToEnd();
 
                     List<int> listNumber = new List<int>();
 
