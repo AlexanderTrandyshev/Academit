@@ -36,5 +36,10 @@ namespace Shape
         {
             return 2 * Math.PI * radius;
         }
+
+        public override string ToString()
+        {
+            return "Окружность";
+        }
     }
 }

@@ -34,5 +34,9 @@ namespace Shape
         {
             return 4 * Width;
         }
+        public override string ToString()
+        {
+            return "Квадрат";
+        }
     }
 }

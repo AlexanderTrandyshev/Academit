@@ -15,15 +15,15 @@ namespace Shape
             IShape square = new Square(5);
             IShape triangle = new Triangle(1, 1, 3, 3, 4, 4);
 
-            Console.WriteLine($"Circle = {circle.GetArea()}, Reactangle = {rectangle.GetArea()}, Square = {square.GetArea()},  Triangle = {triangle.GetArea()}");
-
             IShape[] arrayShapes = { circle, rectangle, square, triangle };
+
             // Массив не отсартирован
             foreach (IShape e in arrayShapes)
             {
-                Console.Write($"{e} ");
+                Console.Write($"{e}, ");
             }
 
+            Console.WriteLine();
             Console.WriteLine();
 
             // Массив отсартирован
@@ -31,7 +31,7 @@ namespace Shape
                 $"Площадь = {GetMaxArrayShape(arrayShapes).GetArea()}, " +
                 $"Периметер = {GetMaxArrayShape(arrayShapes).GetPerimeter()}, " +
                 $"Высота = {GetMaxArrayShape(arrayShapes).Heigth}, " +
-                $"Ширина = {GetMaxArrayShape(arrayShapes).Width}");
+                $"Ширина = {GetMaxArrayShape(arrayShapes).Width}" + Environment.NewLine);
         }
 
         public static IShape GetMaxArrayShape(IShape[] arrayShapes)
