@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Vector
 {
-    class MainVector
+    public class MainVector
     {
         public static void Main(string[] args)
         {
-            Vector v = new Vector(4);
+            MethodsVector v = new MethodsVector(4);
             Console.WriteLine($"{v}");
 
         }
