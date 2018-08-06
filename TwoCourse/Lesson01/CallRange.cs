@@ -23,12 +23,14 @@ namespace Range
             Console.WriteLine($"Пересечение интервалов 1 и 2 = (1, 5) : {range1.GetIntersectionIntervals(range2)}");
             Console.WriteLine($"Пересечение интервалов 1 и 3 = (5, 10) : {range1.GetIntersectionIntervals(range3)}");
             Console.WriteLine($"Пересечение интервалов 1 и 4 = (2, 9) : {range1.GetIntersectionIntervals(range4)}");
-            Console.WriteLine($"Пересечение интервалов 1 и 5 = (null) : {range1.GetIntersectionIntervals(range5)}");
+            Console.WriteLine("Пересечение интервалов 1 и 5 = (null) : {0}", range1.GetIntersectionIntervals(range5));
             Console.WriteLine($"Пересечение интервалов 1 и 6 = (1, 7) : {range1.GetIntersectionIntervals(range6)}");
             Console.WriteLine($"Пересечение интервалов 1 и 7 = (5, 10) : {range1.GetIntersectionIntervals(range7)}" + Environment.NewLine);
 
             Range range13 = new Range(10, 12);
-            Console.WriteLine($"Объединение интервалов 1 и 13 = (1, 12) : {range1.GetJoinIntervals(range7)}");
+            Range range14 = new Range(11, 13);
+            Console.WriteLine($"Объединение интервалов 1 и 13 = (1, 12) : {range1.GetJoinIntervals(range13).ToString()}");
+            Console.WriteLine($"Объединение интервалов 1 и 13 = (1, 12) : {range1.GetJoinIntervals(range14)}");
 
 
             /*

@@ -75,7 +75,9 @@ namespace Range
             // Нет пересечения
             else
             {
-                return null;
+                newFrom = -1;
+                newTo = -1;
+                return new Range(newFrom, newTo);
             }
         }
 
@@ -163,10 +165,49 @@ namespace Range
             return point >= From && point <= To;
         }
 
-        // TODO (можно писать код только в теле метода)
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(obj, this))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(obj, null) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Range r = (Range)obj;
+
+            return From == r.From && To == r.To;
+        }
+
+        public override int GetHashCode()
+        {
+            int prime = 3;
+            int hash = 1;
+            hash = prime * hash + From.GetHashCode();
+            hash = prime * hash + To.GetHashCode();
+
+            return hash;
+        }
+
         public override string ToString()
         {
-            return $"({From}, {To})";
+            if (From.Equals(-1) && To.Equals(-1))
+            {
+                return "null";
+            }
+            else if (Equals(this))
+            {
+                return $"({From}, {To})";
+            }
+            else
+            {
+                return "null";
+            }
         }
+
+
     }
 }
