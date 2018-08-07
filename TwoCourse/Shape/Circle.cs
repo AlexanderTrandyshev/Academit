@@ -41,5 +41,22 @@ namespace Shape
         {
             return "Окружность";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(null, obj) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Circle c = (Circle)obj;
+
+            return c.radius == radius;
+        }
     }
 }

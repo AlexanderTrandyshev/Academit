@@ -18,7 +18,7 @@ namespace Shape
 
         public double Width
         {
-            get {return GetMaxNumber(x1, x2, x3) - GetMinNumber(x1, x2, x3);}
+            get { return GetMaxNumber(x1, x2, x3) - GetMinNumber(x1, x2, x3); }
 
             set
             {
@@ -30,7 +30,7 @@ namespace Shape
 
         public double Heigth
         {
-            get {return GetMaxNumber(y1, y2, y3) - GetMinNumber(y1, y2, y3);}
+            get { return GetMaxNumber(y1, y2, y3) - GetMinNumber(y1, y2, y3); }
 
             set
             {
@@ -40,7 +40,7 @@ namespace Shape
             }
         }
 
-        public Triangle (double x1, double y1, double x2, double y2, double x3, double y3)
+        public Triangle(double x1, double y1, double x2, double y2, double x3, double y3)
         {
             this.x1 = x1;
             this.y1 = y1;
@@ -52,7 +52,7 @@ namespace Shape
             this.y3 = y3;
         }
 
-        public double GetLength (double x1, double y1, double x2, double y2)
+        public double GetLength(double x1, double y1, double x2, double y2)
         {
             return Math.Pow(y2 - y1, 2) + Math.Pow(x2 - x1, 2);
         }
@@ -105,6 +105,37 @@ namespace Shape
         public override string ToString()
         {
             return "Треугольник";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(obj, this))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(null, obj) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+            Triangle t = (Triangle)obj;
+
+            return t.x1 == x1 && t.x2 == x2 && t.x3 == x3 && t.y1 == y1 && t.y2 == y2 && t.y3 == y3;
+        }
+
+        public override int GetHashCode()
+        {
+            int prime = 37;
+            int hash = 1;
+            hash = prime * hash + x1.GetHashCode();
+            hash = prime * hash + x2.GetHashCode();
+            hash = prime * hash + x3.GetHashCode();
+
+            hash = prime * hash + y1.GetHashCode();
+            hash = prime * hash + y2.GetHashCode();
+            hash = prime * hash + y3.GetHashCode();
+
+            return hash;
         }
     }
 }

@@ -39,5 +39,33 @@ namespace Shape
         {
             return "Прямоугольник";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(null, obj) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Rectangle r = (Rectangle)obj;
+
+            return r.Width == Width && r.Heigth == Heigth;
+        }
+
+        public override int GetHashCode()
+        {
+            const int prime = 37;
+            int hash = 1;
+
+            hash = prime * hash + Width.GetHashCode();
+            hash = prime * hash + Heigth.GetHashCode();
+
+            return hash;
+        }
     }
 }

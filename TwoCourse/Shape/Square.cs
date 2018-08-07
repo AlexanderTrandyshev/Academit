@@ -38,5 +38,33 @@ namespace Shape
         {
             return "Квадрат";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(null, obj) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Square s = (Square)obj;
+
+            return s.Heigth == Heigth && s.Width == Width;
+        }
+
+        public override int GetHashCode()
+        {
+            const int prime = 37;
+            int hash = 1;
+
+            hash = prime * hash + Width.GetHashCode();
+            hash = prime * hash + Heigth.GetHashCode();
+
+            return hash;
+        }
     }
 }
