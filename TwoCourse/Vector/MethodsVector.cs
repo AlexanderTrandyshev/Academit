@@ -11,20 +11,23 @@ namespace Vector
         private double size;
         private double[] vector;
 
-        public MethodsVector(double n)
+        public MethodsVector(double size)
         {
-            if (n <= 0)
+            if (size <= 0)
             {
                 throw new ArgumentException("Размер вектора не может быть <= 0");
             }
             else
             {
-                size = n;
+                vector = null;
+                this.size = size;
             }
         }
 
         public MethodsVector(MethodsVector vector)
         {
+            size = vector.size;
+            this.vector = vector.vector;
         }
 
         public MethodsVector(double[] vector)
@@ -35,11 +38,11 @@ namespace Vector
             }
         }
 
-        public MethodsVector(double n, double[] arrayComponetsVector)
+        public MethodsVector(double sizeArray, double[] arrayComponetsVector)
         {
             for (int i = 0; i < arrayComponetsVector.Length; ++i)
             {
-                if (arrayComponetsVector.Length < n)
+                if (arrayComponetsVector.Length < sizeArray && i > sizeArray)
                 {
                     vector[i] = 0;
                 }
@@ -58,6 +61,12 @@ namespace Vector
         public override string ToString()
         {
             return string.Join(",", vector);
+        }
+
+        //TODO угол неизвестен. 
+        public double AdditionVectors(MethodsVector vector)
+        {
+            return Math.Sqrt(Math.Pow(size, 2) + Math.Pow(vector.size, 2) - 2 * size * vector.size * Math.Cos());
         }
     }
 }
