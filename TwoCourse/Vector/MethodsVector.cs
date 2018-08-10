@@ -9,7 +9,7 @@ namespace Vector
     public class MethodsVector
     {
         private double size;
-        private double[] vector;
+        private double[] component;
 
         public MethodsVector(double size)
         {
@@ -19,7 +19,7 @@ namespace Vector
             }
             else
             {
-                vector = null;
+                component = null;
                 this.size = size;
             }
         }
@@ -27,14 +27,14 @@ namespace Vector
         public MethodsVector(MethodsVector vector)
         {
             size = vector.size;
-            this.vector = vector.vector;
+            this.component = vector.component;
         }
 
         public MethodsVector(double[] vector)
         {
-            for(int i = 0; i < vector.Length; ++i)
+            for (int i = 0; i < vector.Length; ++i)
             {
-                this.vector[i] = vector[i];
+                this.component[i] = vector[i];
             }
         }
 
@@ -44,11 +44,11 @@ namespace Vector
             {
                 if (arrayComponetsVector.Length < sizeArray && i > sizeArray)
                 {
-                    vector[i] = 0;
+                    component[i] = 0;
                 }
                 else
                 {
-                    vector[i] = arrayComponetsVector[i];
+                    component[i] = arrayComponetsVector[i];
                 }
             }
         }
@@ -60,13 +60,30 @@ namespace Vector
 
         public override string ToString()
         {
-            return string.Join(",", vector);
+            return string.Join(",", component);
         }
 
-        //TODO угол неизвестен. 
+        //TODO нет полной реализации
         public double AdditionVectors(MethodsVector vector)
         {
-            return Math.Sqrt(Math.Pow(size, 2) + Math.Pow(vector.size, 2) - 2 * size * vector.size * Math.Cos());
+            List<double> newComponent = new List<double>();
+
+            for (int i = 0; i < vector.component.Length; ++i)
+            {
+
+                //TODO компоненты меньшей дленны должны заполняться "0" 
+                if (vector.component.Length < component.Length)
+                {
+                    newComponent.Add(component[i] + vector.component[i]);
+                }
+                else
+                {
+                    newComponent.Add(component[i]);
+                }
+            }
+
+
+            return new MethodsVector();
         }
     }
 }
