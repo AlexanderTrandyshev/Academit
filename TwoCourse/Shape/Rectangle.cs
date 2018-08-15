@@ -35,6 +35,7 @@ namespace Shape
         {
             return 2 * (Width + Heigth);
         }
+
         public override string ToString()
         {
             return "Прямоугольник";

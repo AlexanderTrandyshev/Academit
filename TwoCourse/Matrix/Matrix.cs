@@ -7,7 +7,7 @@ using Vector;
 
 namespace Matrix
 {
-    class Matrix //: MethodsVector
+    class Matrix
     {
 
     

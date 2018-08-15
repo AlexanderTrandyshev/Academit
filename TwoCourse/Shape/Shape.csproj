@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
-    <Compile Include="CompSort.cs" />
+    <Compile Include="ComparerSort.cs" />
     <Compile Include="IShape.cs" />
     <Compile Include="CallShapes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

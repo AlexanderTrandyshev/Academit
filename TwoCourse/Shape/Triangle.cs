@@ -102,6 +102,7 @@ namespace Shape
         {
             return GetLength(x1, y1, x2, y2) + GetLength(x2, y2, x3, y3) + GetLength(x1, y1, x3, y3);
         }
+
         public override string ToString()
         {
             return "Треугольник";

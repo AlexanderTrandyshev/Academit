@@ -58,5 +58,15 @@ namespace Shape
 
             return c.radius == radius;
         }
+
+        public override int GetHashCode()
+        {
+            const int prime = 37;
+            int hash = 1;
+
+            hash = prime * hash + Width.GetHashCode();
+
+            return hash;
+        }
     }
 }

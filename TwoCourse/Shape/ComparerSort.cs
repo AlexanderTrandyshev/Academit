@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    class CompSort : IComparer<IShape>
+    class ComparerSort : IComparer<IShape>
     {
         public int Compare(IShape x, IShape y)
         {
