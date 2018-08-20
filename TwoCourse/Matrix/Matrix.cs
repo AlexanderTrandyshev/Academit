@@ -9,8 +9,17 @@ namespace Matrix
 {
     class Matrix
     {
+        private int n;
+        private int m;
 
-    
+        public Matrix(int n, int m)
+        {
+            this.n = n;
+            this.m = m;
+
+            double[,] matrix = new double[n,m];
+        }
+
 
     }
 }
