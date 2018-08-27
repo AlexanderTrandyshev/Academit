@@ -59,12 +59,10 @@ namespace Shape
 
         public double GetMaxNumber(double number1, double number2, double number3)
         {
-            // TODO Неверное сравнение double чисел
             if (number1 > number2 && number1 > number3)
             {
                 return number1;
             }
-            // TODO Неверное сравнение double чисел
             else if (number1 < number2 && number2 > number3)
             {
                 return number2;
@@ -77,12 +75,10 @@ namespace Shape
 
         public double GetMinNumber(double number1, double number2, double number3)
         {
-            // TODO Неверное сравнение double чисел
             if (number1 < number2 && number1 < number3)
             {
                 return number1;
             }
-            // TODO Неверное сравнение double чисел
             else if (number1 > number2 && number2 < number3)
             {
                 return number2;

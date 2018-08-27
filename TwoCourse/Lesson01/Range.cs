@@ -1,5 +1,4 @@
 ﻿using System;
-//спросить про правильное написание
 namespace Range
 {
     class Range
@@ -75,9 +74,8 @@ namespace Range
             // Нет пересечения
             else
             {
-                newFrom = -1;
-                newTo = -1;
-                return new Range(newFrom, newTo);
+                // TODO Как распечатать?
+                return null;
             }
         }
 
@@ -194,18 +192,7 @@ namespace Range
 
         public override string ToString()
         {
-            if (From.Equals(-1) && To.Equals(-1))
-            {
-                return "null";
-            }
-            else if (Equals(this))
-            {
-                return $"({From}, {To})";
-            }
-            else
-            {
-                return "null";
-            }
+            return Equals(this) ? $"({From}, {To})" : "null";
         }
 
 

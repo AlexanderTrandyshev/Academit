@@ -23,6 +23,7 @@ namespace Vector
                 {
                     component[i] = 0;
                 }
+
                 this.size = size;
             }
         }
@@ -35,8 +36,12 @@ namespace Vector
          
         public MethodsVector(double[] valuesArray)
         {
-            // TODO Нужно не создавать копию, а сразу дополнить значениями из массива?
-            Array.Copy(component, valuesArray, valuesArray.Length);
+            Array.Resize(ref component, component.Length + valuesArray.Length);
+
+            for(int i = component.Length, j = 0; i < valuesArray.Length; ++i, ++j)
+            {
+                component[i] = valuesArray[j];
+            }
         }
 
         public MethodsVector(double sizeArray, double[] valuesArray)
@@ -140,6 +145,46 @@ namespace Vector
         public double GetComponentVector(int index)
         {
             return Convert.ToDouble(component.GetValue(index));
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(null, obj) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            MethodsVector vector = (MethodsVector)obj;
+            
+            for(int i = 0; i < component.Length; ++i)
+            {
+                if(vector.component[i] != component[i])
+                {
+                    return false;
+                }
+            }
+
+            return vector.size == size;
+        }
+
+        public override int GetHashCode()
+        {
+            const int prime = 3;
+            int hash = 0;
+
+            hash = prime * hash + size.GetHashCode();
+
+            for (int i = 0; i < component.Length; ++i)
+            {
+                hash = prime * hash + component[i].GetHashCode();
+            }
+
+            return hash;
         }
     }
 }
