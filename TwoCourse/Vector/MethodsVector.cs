@@ -187,6 +187,7 @@ namespace Vector
             return hash;
         }
 
+        // TODO Есть массив поля (не статический) - ошибка
         public static MethodsVector AdditionVectorsStatic (MethodsVector vector)
         {
             List<double> newComponent = new List<double>();
@@ -209,6 +210,7 @@ namespace Vector
             return new MethodsVector(newComponent.ToArray());
         }
 
+// TODO Есть массив поля (не статический) - ошибка
         public static MethodsVector SubtractionVectorsStatic(MethodsVector vector)
         {
             List<double> newComponent = new List<double>();
