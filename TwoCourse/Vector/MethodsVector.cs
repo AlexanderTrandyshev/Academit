@@ -186,5 +186,47 @@ namespace Vector
 
             return hash;
         }
+
+        public static MethodsVector AdditionVectorsStatic (MethodsVector vector)
+        {
+            List<double> newComponent = new List<double>();
+
+            for (int i = 0; i < vector.component.Length; ++i)
+            {
+                public static double[] componentVector = component;
+
+                //TODO компоненты меньшей дленны должны заполняться "0" 
+                if (vector.component.Length < component.Length)
+                {
+                    newComponent.Add(component[i] + vector.component[i]);
+                }
+                else
+                {
+                    newComponent.Add(component[i]);
+                }
+            }
+
+            return new MethodsVector(newComponent.ToArray());
+        }
+
+        public static MethodsVector SubtractionVectorsStatic(MethodsVector vector)
+        {
+            List<double> newComponent = new List<double>();
+
+            for (int i = 0; i < vector.component.Length; ++i)
+            {
+                //TODO компоненты меньшей дленны должны заполняться "0" 
+                if (vector.component.Length < component.Length)
+                {
+                    newComponent.Add(component[i] - vector.component[i]);
+                }
+                else
+                {
+                    newComponent.Add(component[i]);
+                }
+            }
+
+            return new MethodsVector(newComponent.ToArray());
+        }
     }
 }

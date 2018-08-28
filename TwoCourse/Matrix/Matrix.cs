@@ -18,6 +18,14 @@ namespace Matrix
             this.m = m;
 
             double[,] matrix = new double[n,m];
+
+            for(int i = 0; i < matrix.Length; ++i)
+            {
+                for (int k = 0; k < matrix.Length; ++k)
+                {
+                    matrix[i, k] = 0;
+                }
+            }
         }
 
 
