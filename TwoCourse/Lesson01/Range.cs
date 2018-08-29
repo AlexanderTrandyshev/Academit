@@ -76,8 +76,7 @@ namespace Range
             // Нет пересечения
             else
             {
-                // TODO Как распечатать?
-                throw new IOException("null");
+                return null;
             }
         }
 
@@ -194,7 +193,7 @@ namespace Range
 
         public override string ToString()
         {
-            return  $"({From}, {To})";
+            return (this != null) ? $"({From}, {To})" : "null";
         }
 
 
