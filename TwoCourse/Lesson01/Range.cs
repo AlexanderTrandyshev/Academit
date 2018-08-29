@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+
 namespace Range
 {
     class Range
@@ -75,7 +77,7 @@ namespace Range
             else
             {
                 // TODO Как распечатать?
-                return null;
+                throw new IOException("null");
             }
         }
 
@@ -192,7 +194,7 @@ namespace Range
 
         public override string ToString()
         {
-            return Equals(this) ? $"({From}, {To})" : "null";
+            return  $"({From}, {To})";
         }
 
 

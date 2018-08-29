@@ -188,43 +188,41 @@ namespace Vector
         }
 
         // TODO Есть массив поля (не статический) - ошибка
-        public static MethodsVector AdditionVectorsStatic (MethodsVector vector)
+        public static MethodsVector AdditionVectorsStatic(MethodsVector vector1, MethodsVector vector2)
         {
             List<double> newComponent = new List<double>();
 
-            for (int i = 0; i < vector.component.Length; ++i)
-            {
-                public static double[] componentVector = component;
-
+            for (int i = 0; i < vector2.component.Length; ++i)
+            { 
                 //TODO компоненты меньшей дленны должны заполняться "0" 
-                if (vector.component.Length < component.Length)
+                if (vector2.component.Length < vector1.component.Length)
                 {
-                    newComponent.Add(component[i] + vector.component[i]);
+                    newComponent.Add(vector1.component[i] + vector2.component[i]);
                 }
                 else
                 {
-                    newComponent.Add(component[i]);
+                    newComponent.Add(vector1.component[i]);
                 }
             }
 
             return new MethodsVector(newComponent.ToArray());
         }
 
-// TODO Есть массив поля (не статический) - ошибка
-        public static MethodsVector SubtractionVectorsStatic(MethodsVector vector)
+        // TODO Есть массив поля (не статический) - ошибка
+        public static MethodsVector SubtractionVectorsStatic(MethodsVector vector1, MethodsVector vector2)
         {
             List<double> newComponent = new List<double>();
 
-            for (int i = 0; i < vector.component.Length; ++i)
+            for (int i = 0; i < vector2.component.Length; ++i)
             {
                 //TODO компоненты меньшей дленны должны заполняться "0" 
-                if (vector.component.Length < component.Length)
+                if (vector2.component.Length < vector1.component.Length)
                 {
-                    newComponent.Add(component[i] - vector.component[i]);
+                    newComponent.Add(vector1.component[i] - vector2.component[i]);
                 }
                 else
                 {
-                    newComponent.Add(component[i]);
+                    newComponent.Add(vector1.component[i]);
                 }
             }
 
