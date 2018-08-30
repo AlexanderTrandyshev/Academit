@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vector;
 
-namespace Matrix
+namespace ProjectMatrix
 {
     class Matrix
     {
@@ -28,6 +28,12 @@ namespace Matrix
             }
         }
 
+        public Matrix(Matrix matrix)
+        {
+        }
 
+        public int GetSizeMatrix(Matrix matrix)
+        {
+        }
     }
 }

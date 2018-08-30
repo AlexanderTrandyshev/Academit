@@ -227,23 +227,17 @@ namespace Vector
             return new MethodsVector(newComponent.ToArray());
         }
 
-        public static MethodsVector ScalarProductVectors(MethodsVector vector1, MethodsVector vector2)
+        // TODO Правильно ли считается скаляр? Что делать если вектора разного размера?
+        public static double ScalarProductVectors(MethodsVector vector1, MethodsVector vector2)
         {
-            List<double> newComponent = new List<double>();
+            double scalarProduct = 0;
 
-            for (int i = 0; i < vector2.component.Length; ++i)
+            for (int i = 0; i < vector1.component.Length; ++i)
             {
-                //TODO компоненты меньшей дленны должны заполняться "0" 
-                if (vector2.component.Length < vector1.component.Length)
-                {
-                    newComponent.Add(vector1.component[i] * vector2.component[i]);
-                }
-                else
-                {
-                    newComponent.Add(vector1.component[i]);
-                }
+                scalarProduct += vector1.component[i] * vector2.component[i];
             }
-            return new MethodsVector(newComponent.ToArray());
+
+            return scalarProduct;
         }
     }
 }
