@@ -193,9 +193,14 @@ namespace Range
 
         public override string ToString()
         {
-            return (this != null) ? $"({From}, {To})" : "null";
+            try
+            {
+                return $"({From}, {To})";
+            }
+            catch (NullReferenceException)
+            {
+                return "null";
+            }
         }
-
-
     }
 }

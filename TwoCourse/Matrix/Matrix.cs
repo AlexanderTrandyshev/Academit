@@ -34,6 +34,7 @@ namespace ProjectMatrix
 
         public int GetSizeMatrix(Matrix matrix)
         {
+            matrix.
         }
     }
 }
