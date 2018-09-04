@@ -8,7 +8,7 @@ namespace ListProject
 {
     class MyList <T>
     {
-        private <T>[] items = new <T>[10];
+        private T[] items = new T[10];
         private int length;
 
         public int Size()
@@ -21,7 +21,7 @@ namespace ListProject
             return length == 0;
         }
 
-        public <T> Get(int index)
+        public T Get(int index)
         {
             if(index > length)
             {
@@ -33,7 +33,7 @@ namespace ListProject
             }
         }
 
-        public void Set(int index, <T> value)
+        public void Set(int index, T value)
         {
             if(index > length)
             {
@@ -45,9 +45,9 @@ namespace ListProject
             }
         }
         
-        public void Add(<T> value)
+        public void Add(T value)
         {
-            if (length >= items.length)
+            if (length >= items.Length)
             {
                 IncreaseCapacity();
             }
@@ -56,8 +56,8 @@ namespace ListProject
         }
         private void IncreaseCapacity()
         {
-            < T > oldItem = items;
-            items = new <T>[oldItem.length * 2];
+            T[] oldItem = items;
+            items = new T[oldItem.Length * 2];
             //TODO реализовать вставку элементов в массив
         }
     }
