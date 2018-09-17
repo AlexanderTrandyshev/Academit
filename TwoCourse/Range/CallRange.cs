@@ -17,7 +17,7 @@ namespace Range
             Range range6 = new Range(7, -2);
             Range range7 = new Range(12, 5);
 
-            Console.WriteLine($"Длинна отрезка = {range1.GetLengthInterval}");
+            Console.WriteLine($"Длинна отрезка = {range1.Length}");
             Console.WriteLine($"Точка лежит на отрезке: {range1.IsInside(5)}" + Environment.NewLine);
 
             Console.WriteLine($"Пересечение интервалов 1 и 2 = (1, 5) : {range1.GetIntersectionIntervals(range2)}");

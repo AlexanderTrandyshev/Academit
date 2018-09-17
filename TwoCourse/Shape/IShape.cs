@@ -11,13 +11,11 @@ namespace Shape
         double Width
         {
             get;
-            set;
         }
 
         double Heigth
         {
             get;
-            set;
         }
 
         double GetArea();

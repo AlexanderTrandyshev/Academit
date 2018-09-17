@@ -13,31 +13,21 @@ namespace ArrayListHome
         {
             using (StreamReader reader = new StreamReader("index.txt"))
             {
-                if (reader.ReadLine() == null)
+                List<int> listTextFile = reader.ReadToEnd().Replace(Environment.NewLine, " ").Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+
+                listTextFile.RemoveAll(CheckEven);
+
+                List<int> listTextFileNoRepeatNumbers = new List<int>();
+
+                foreach (int e in listTextFile)
                 {
-                    throw new Exception("Пустой файл");
-                }
-                else
-                {
-                    using (StreamReader reader2 = new StreamReader("index.txt"))
+                    if (listTextFileNoRepeatNumbers.Contains(e))
                     {
-                        List<int> listTextFile = reader2.ReadToEnd().Replace(Environment.NewLine, " ").Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
-
-                        listTextFile.RemoveAll(CheckEven);
-
-                        List<int> listTextFileNoRepeatNumbers = new List<int>();
-
-                        for (int i = 0; i < listTextFile.Count; ++i)
-                        {
-                            if (listTextFileNoRepeatNumbers.IndexOf(listTextFile[i]) == -1)
-                            {
-                                listTextFileNoRepeatNumbers.Add(listTextFile[i]);
-                            }
-                        }
-
-                        listTextFileNoRepeatNumbers.ForEach(Print);
+                        listTextFileNoRepeatNumbers.Add(e);
                     }
                 }
+
+                listTextFileNoRepeatNumbers.ForEach(Print);
             }
         }
 

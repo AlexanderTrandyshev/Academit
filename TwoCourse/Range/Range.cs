@@ -17,7 +17,7 @@ namespace Range
             set;
         }
 
-        public double GetLengthInterval
+        public double Length
         {
             get { return To - From; }
         }
@@ -29,7 +29,7 @@ namespace Range
         }
 
         // Пересечения 
-        public object GetIntersectionIntervals(Range interval)
+        public Range GetIntersectionIntervals(Range interval)
         {
             double newFrom;
             double newTo;
@@ -134,7 +134,7 @@ namespace Range
          }
 
         // Разница
-        public object GetDifferenceIntervals(Range interval)
+        public Range GetDifferenceIntervals(Range interval)
         {
             double newFrom;
             double newTo;
@@ -154,7 +154,7 @@ namespace Range
             }
             else
             {
-                Range[] arrayIntervals = { new Range(From, To), new Range(interval.From, interval.To) };
+                Range arrayIntervals = { new Range(From, To), new Range(interval.From, interval.To) };
                 return arrayIntervals;
             }
         }

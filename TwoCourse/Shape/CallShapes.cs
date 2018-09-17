@@ -36,7 +36,7 @@ namespace Shape
 
         public static IShape GetMaxArrayShape(IShape[] arrayShapes)
         {
-            Array.Sort(arrayShapes, new ComparerSort());
+            Array.Sort(arrayShapes, new ShapeAreaComparer());
 
             return arrayShapes[arrayShapes.Length - 1];
         }
